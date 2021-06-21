@@ -61,7 +61,7 @@ module "example_client_app" {
   log_configuration = local.example_client_app_log_config
   container_definitions = [{
     name             = "example-client-app"
-    image            = "ghcr.io/lkysow/fake-service:v0.21.0"
+    image            = "ghcr.io/lkysow/nicholasjackson-fake-service:v0.22.5"
     essential        = true
     logConfiguration = local.example_client_app_log_config
     environment = [
@@ -118,7 +118,7 @@ module "example_server_app" {
   log_configuration  = local.example_server_app_log_config
   container_definitions = [{
     name             = "example-server-app"
-    image            = "ghcr.io/lkysow/fake-service:v0.21.0"
+    image            = "ghcr.io/lkysow/nicholasjackson-fake-service:v0.22.5"
     essential        = true
     logConfiguration = local.example_server_app_log_config
     environment = [

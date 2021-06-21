@@ -125,7 +125,11 @@ module "example_server_app" {
       {
         name  = "NAME"
         value = "${var.name}-example-server-app"
-      }
+      }/*,
+      {
+        name  = "ERROR_RATE"
+        value = "0.5"
+      }*/
     ]
   }]
   consul_server_service_name = data.terraform_remote_state.consul.outputs.consul_server_service_name
@@ -183,7 +187,7 @@ resource "aws_lb_target_group" "example_client_app" {
   target_type          = "ip"
   deregistration_delay = 10
   health_check {
-    path                = "/"
+    path                = "/ready"
     healthy_threshold   = 2
     unhealthy_threshold = 10
     timeout             = 30
